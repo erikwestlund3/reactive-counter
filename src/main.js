@@ -1,4 +1,3 @@
-// counter.js
 let count = 0;
 
 function updateDisplay() {
