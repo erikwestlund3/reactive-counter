@@ -1,24 +1,31 @@
-let count = 0;
+import {
+  countDisplayRef,
+  decrementRef,
+  incrementRef,
+  resetRef,
+} from "./lib.js";
 
-function updateDisplay() {
-  document.getElementById("count-display").textContent = count;
-}
+let count = 0;
 
 function setCount(newCount) {
   count = newCount;
-  updateDisplay();
+  render();
 }
 
-document.getElementById("increment").addEventListener("click", () => {
+function render() {
+  countDisplayRef.textContent = count;
+}
+
+incrementRef.addEventListener("click", () => {
   setCount(count + 1);
 });
 
-document.getElementById("decrement").addEventListener("click", () => {
+decrementRef.addEventListener("click", () => {
   setCount(count - 1);
 });
 
-document.getElementById("reset").addEventListener("click", () => {
+resetRef.addEventListener("click", () => {
   setCount(0);
 });
 
-updateDisplay(); // Show initial count
+render();
